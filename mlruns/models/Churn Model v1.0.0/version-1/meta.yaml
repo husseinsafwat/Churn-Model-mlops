@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1778724273720
+current_stage: None
+description: ''
+last_updated_timestamp: 1778724273720
+name: Churn Model v1.0.0
+run_id: 0447d40695494f068500d1de4dfd1996
+run_link: ''
+source: mlflow-artifacts:/921095223212119000/0447d40695494f068500d1de4dfd1996/artifacts/randomforest
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/921095223212119000/0447d40695494f068500d1de4dfd1996/artifacts/randomforest
+user_id: null
+version: 1
