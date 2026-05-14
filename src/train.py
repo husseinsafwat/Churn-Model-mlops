@@ -3,6 +3,8 @@ This module contains functions to preprocess and train the model
 for bank consumer churn prediction.
 """
 
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.utils import resample
@@ -23,6 +25,10 @@ from sklearn.metrics import (
 
 ### Import MLflow
 import mlflow
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+DATA_CSV = ROOT_DIR / "dataset" / "Churn_Modelling.csv"
+
 
 def rebalance(data):
     """
@@ -137,7 +143,9 @@ def train(X_train, y_train , model , model_name):
     mlflow.sklearn.log_model(model, model_name , signature=signature )
 
     ### Log the data
-    dataset = mlflow.data.from_pandas(X_train, source="dataset/Churn_Modelling.csv", name="training_data")
+    dataset = mlflow.data.from_pandas(
+        X_train, source=str(DATA_CSV.resolve()), name="training_data"
+    )
     mlflow.log_input(dataset, context="training")
 
     return model
@@ -160,7 +168,7 @@ def main():
     for model_name , model1 in models.items() : 
         with mlflow.start_run(run_name = model_name):
 
-            df = pd.read_csv("dataset/Churn_Modelling.csv")
+            df = pd.read_csv(DATA_CSV)
             col_transf, X_train, X_test, y_train, y_test = preprocess(df)
 
            
