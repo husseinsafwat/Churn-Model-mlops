@@ -11,6 +11,6 @@ COPY preprocessor.pkl .
 COPY model.pkl .
 
 
-EXPOSE 80
+EXPOSE 8000
 
 CMD ["python", "main.py"]
