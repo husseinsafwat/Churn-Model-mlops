@@ -10,6 +10,7 @@ COPY main.py .
 COPY preprocessor.pkl .
 COPY model.pkl .
 
-EXPOSE 8000
+
+EXPOSE 80
 
 CMD ["python", "main.py"]

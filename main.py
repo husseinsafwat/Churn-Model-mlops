@@ -76,4 +76,4 @@ def predict_churn(customer: CustomerFeatures):
 if __name__ == "__main__":
     import uvicorn
     logger.info("Starting Churn Prediction API on 127.0.0.1:8000")
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=80)
